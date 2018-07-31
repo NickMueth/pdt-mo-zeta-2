@@ -1,0 +1,152 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<%--    <link href="Styles/theme.css" rel="stylesheet" />--%>
+    <link href="Styles/siteTheme.css" rel="stylesheet" />
+
+<%--    <link rel="icon" type="image/png" href="Images/favicon-32x32.png" sizes="32x32" />--%>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="MasterForm" runat="server">
+        <!--
+            THIS IS THE NAVBAR FOR THE DEFAULT WEBPAGE, BELOW IS THE NAVBAR FOR THE PORTAL
+            -->
+        <nav class="navbar fixed-top navbar-expand-lg bg-primary navbar-light" style="font-size:large">
+            <asp:HyperLink ID="hplBrand" runat="server" CssClass="navbar-brand ml-lg-5" NavigateUrl="~/Default.aspx" Visible="true">
+                <asp:Image ID="imgBrand" ImageUrl="~/Images/Logos/shield2.jpg" style="max-height:50px" AlternateText="Sword & Shield" runat="server" />
+            </asp:HyperLink>
+<%--            <asp:Label ID="lblPageDescriptor" runat="server" Text="Page Descriptor" CssClass="mx-2 d-inline-block text-truncate m-0"></asp:Label>--%>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown px-1">
+                        <asp:HyperLink ID="aboutDropdown" runat="server" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" NavigateUrl="#" Text="About" Visible="true"></asp:HyperLink>
+                        <div class="dropdown-menu">
+                            <asp:HyperLink ID="hplHistory" runat="server" CssClass="dropdown-item" NavigateUrl="History.aspx" Text="History" Visible="true"></asp:HyperLink>
+                            <asp:HyperLink ID="hplExecBoard" runat="server" CssClass="dropdown-item" NavigateUrl="ExecBoard.aspx" Text="Executive Board" Visible="true"></asp:HyperLink>
+                        </div>
+                    </li>
+
+                    <li class="nav-item px-1">
+                        <asp:HyperLink ID="hplGallery" runat="server" CssClass="nav-link" NavigateUrl="Gallery.aspx" Text="Gallery" Visible="true"></asp:HyperLink>
+                    </li>
+                    <li class="nav-item px-1">
+                        <asp:HyperLink ID="hplRecruitment" runat="server" CssClass="nav-link" NavigateUrl="Recruitment.aspx" Text="Recruitment" Visible="true"></asp:HyperLink>
+                    </li>
+                    <li class="nav-item px-1">
+                        <asp:HyperLink ID="hplContact" runat="server" CssClass="nav-link" NavigateUrl="Contact.aspx" Text="Contact" Visible="true"></asp:HyperLink>
+                    </li>
+                    <%--<li class="nav-item dropdown px-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navSocialMedia" data-toggle="dropdown">Social Media</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="History.aspx">Facebook</a>
+                            <a class="dropdown-item" href="ExecBoard.aspx">Twitter</a>
+                            <a class="dropdown-item" href="ExecBoard.aspx">Instagram</a>
+                        </div>
+                    </li>--%>
+                </ul>
+                <ul class="navbar-nav ml-auto mr-5">
+                    <li class="px-1">
+                        <asp:HyperLink ID="hplManageAndWelcome" runat="server" CssClass="nav-link" NavigateUrl="/PhiPortal/Manage.aspx" Text="" Visible="true"></asp:HyperLink>
+
+                    </li>
+                    <li class="nav-item px-1">
+                        <asp:HyperLink ID="hplPortal_Login" runat="server" CssClass="nav-link" NavigateUrl="/PhiPortal/Login.aspx" Text="Login" Visible="true"></asp:HyperLink>
+                    </li>
+                    <li class="nav-item px-1">
+                        <asp:HyperLink ID="hplPortal_Logout" runat="server" CssClass="nav-link" NavigateUrl="#mdlLogout" Visible="false" Text="Logout" data-toggle="modal"></asp:HyperLink>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!--
+            THIS IS THE NAVBAR FOR THE WEB PORTAL
+            -->
+        <nav style="display:none" class="navbar fixed-top navbar-expand-lg bg-primary navbar-light" style="font-size:large">
+            <asp:HyperLink ID="hplBrand1" runat="server" CssClass="navbar-brand ml-lg-5" NavigateUrl="~/Default.aspx" Visible="true">
+                <asp:Image ID="imgBrand1" ImageUrl="~/Images/Logos/shield2.jpg" style="max-height:50px" AlternateText="Sword & Shield" runat="server" />
+            </asp:HyperLink>
+<%--            <asp:Label ID="lblPageDescriptor" runat="server" Text="Page Descriptor" CssClass="mx-2 d-inline-block text-truncate m-0"></asp:Label>--%>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#portalNavbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="portalNavbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item px-1">
+                        <asp:HyperLink ID="hplPortal_Home" runat="server" CssClass="nav-link" NavigateUrl="Home.aspx" Text="Portal Home" Visible="true"></asp:HyperLink>
+                    </li>
+                    <li class="nav-item px-1">
+                        <asp:HyperLink ID="hplPortal_Apparel" runat="server" CssClass="nav-link" NavigateUrl="Apparel.aspx" Text="Apparel" Visible="true"></asp:HyperLink>
+                    </li>
+                    <li class="nav-item px-1">
+                        <asp:HyperLink ID="hplPortal_Calendar" runat="server" CssClass="nav-link" NavigateUrl="Calendar.aspx" Text="Calendar" Visible="true"></asp:HyperLink>
+                    </li>
+                    <%--<li class="nav-item dropdown px-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navSocialMedia" data-toggle="dropdown">Social Media</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="History.aspx">Facebook</a>
+                            <a class="dropdown-item" href="ExecBoard.aspx">Twitter</a>
+                            <a class="dropdown-item" href="ExecBoard.aspx">Instagram</a>
+                        </div>
+                    </li>--%>
+                </ul>
+                <ul class="navbar-nav ml-auto mr-5">
+                    <li class="px-1">
+                        <asp:HyperLink ID="hplPortal_Manage" runat="server" CssClass="nav-link" NavigateUrl="/PhiPortal/Manage.aspx" Text="" Visible="true"></asp:HyperLink>
+
+                    </li>
+                    <li class="nav-item px-1">
+                        <asp:HyperLink ID="hplPortal_Login1" runat="server" CssClass="nav-link" NavigateUrl="/PhiPortal/Login.aspx" Text="Login" Visible="false"></asp:HyperLink>
+                    </li>
+                    <li class="nav-item px-1">
+                        <asp:HyperLink ID="hplPortal_Logout1" runat="server" CssClass="nav-link" NavigateUrl="#mdlLogout" Visible="false" Text="Logout" data-toggle="modal"></asp:HyperLink>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <asp:Panel runat="server" CssClass="modal fade" ID="mdlLogout">
+            <asp:Panel runat="server" CssClass="modal-dialog" role="document">
+                <asp:Panel runat="server" CssClass="modal-content">
+                    <asp:Panel runat="server" CssClass="modal-header bg-info">
+                        <h5 class="modal-title">Logout</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>×</span>
+                        </button>
+                    </asp:Panel>
+                    <asp:Panel runat="server" CssClass="modal-body">
+                        <asp:Label ID="lblLogout" runat="server" Text="Are you sure you want to logout?"></asp:Label>                  
+                    </asp:Panel>
+                    <asp:Panel runat="server" CssClass="modal-footer">
+                        <asp:Button ID="btnLogout" runat="server" CssClass="btn btn-primary w-25" Text="Yes" PostBackUrl="~/PhiPortal/Logout.aspx"/>
+                        <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-secondary w-25" Text="No" data-dismiss="modal"/>
+                    </asp:Panel>
+                </asp:Panel>
+            </asp:Panel>
+        </asp:Panel>
+    </div>
+    </form>
+</body>
+</html>
