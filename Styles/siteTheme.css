@@ -1,0 +1,21 @@
+﻿body {
+    padding-top: 80px;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.slides{
+    min-width:100%;
+    overflow-y:hidden;
+}
+
+.carousel-caption{
+    top:0;
+}
+
+.bg-primary{
+    background-color: #0080ff;
+}
+.bg-secondary{
+    background-color: #004589;
+}
