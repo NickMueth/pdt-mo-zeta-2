@@ -3,7 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id="myCarousel" class="carousel slide d-none d-sm-block" data-ride="carousel">
+    <style>
+        body {
+            background-image: url("Images/bluelightphi.jpg");
+            background-size: cover;
+        }
+    </style>
+<%--    <div id="myCarousel" class="carousel slide d-none d-sm-block" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -43,15 +49,15 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>
-
+      </div>--%>
+    
     <div class="row">
         <div class="col-lg-8">
             <div class="row">
 
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 bg-light">
             <h1>Follow our Twitter!</h1>
             <a>Tweets by @PhiDeltSEMO</a>
         </div>

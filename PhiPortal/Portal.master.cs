@@ -9,7 +9,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 
-public partial class Site : System.Web.UI.MasterPage
+
+public partial class PhiPortal_Portal : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -23,7 +24,6 @@ public partial class Site : System.Web.UI.MasterPage
 
         if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
-            hplPortal_MainHome.Visible = true;
             hplManageAndWelcome.Visible = true;
             while (reader.Read())
             {

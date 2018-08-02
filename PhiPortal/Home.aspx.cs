@@ -9,9 +9,9 @@ public partial class PhiPortal_Home : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Control 
-        HyperLink aboutDropdown = (HyperLink)this.Master.FindControl("aboutDropdown");
-        aboutDropdown.Visible = false;
+        //Control 
+        //HyperLink aboutDropdown = (HyperLink)this.Master.FindControl("aboutDropdown");
+        //aboutDropdown.Visible = false;
     }
 
     protected void Button1_Click(object sender, EventArgs e)

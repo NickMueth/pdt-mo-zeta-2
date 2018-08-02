@@ -16,9 +16,14 @@ public partial class PhiPortal_Login : System.Web.UI.Page
         HyperLink hplPortal_Login = (HyperLink)this.Master.FindControl("hplPortal_Login");
         hplPortal_Login.Visible = false;
 
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["UserDB"].ConnectionString);
+        
+    }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDatabase"].ConnectionString);
         con.Open();
-        SqlCommand cmd = new SqlCommand("SELECT * FROM UserInfo WHERE Username =@Username AND Password =@Password", con);
+        SqlCommand cmd = new SqlCommand("SELECT * FROM PhiPortalUsers WHERE Username =@Username AND Password =@Password", con);
         cmd.Parameters.AddWithValue("@Username", txtbxUsername.Text);
         cmd.Parameters.AddWithValue("@Password", txtbxPassword.Text);
         SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -31,12 +36,8 @@ public partial class PhiPortal_Login : System.Web.UI.Page
         }
         else
         {
-
+            lblLoginError.Visible = true;
+            txtbxUsername.Text = "";
         }
-    }
-
-    protected void btnLogin_Click(object sender, EventArgs e)
-    {
-
     }
 }

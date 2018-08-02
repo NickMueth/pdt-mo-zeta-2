@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ExecBoard.aspx.cs" Inherits="ExecBoard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PhiPortal/Portal.master" AutoEventWireup="true" CodeFile="Calendar.aspx.cs" Inherits="PhiPortal_Calendar" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1>EXEC BOARD PAGE</h1>
+    <h1>Calendar Page</h1>
 </asp:Content>
 
