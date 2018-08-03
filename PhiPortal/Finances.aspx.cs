@@ -13,13 +13,14 @@ public partial class PhiPortal_Finances : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string firstName = "fillerName", userID = "000", amountMoneyOwed = "000";
+        string firstName = "fillerName", userID = "000" ;
+        decimal amountMoneyOwed = 1;
         //Open Connection
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDatabase"].ConnectionString);
         connection.Open();
         SqlDataReader dataReader = null;
 
-        SqlCommand getID = new SqlCommand("select Id, FirstName from PhiPortalUsers where Username =@Username", connection);
+        SqlCommand getID = new SqlCommand("select Id, FirstName from UserInfo where Username =@Username", connection);
         getID.Parameters.AddWithValue("@Username", Context.User.Identity.Name);
         dataReader = getID.ExecuteReader();
 
@@ -38,11 +39,37 @@ public partial class PhiPortal_Finances : System.Web.UI.Page
 
         while (dataReader2.Read())
         {
-            amountMoneyOwed = dataReader2["AmountOwed"].ToString();
+            amountMoneyOwed = dataReader2.GetDecimal(1);
         }
         dataReader2.Close();
 
-        lblAmountOwed.Text = firstName +", you owe the fraternity: $" +amountMoneyOwed;
+        if (amountMoneyOwed > 0)
+        {
+            lblAmountOwed.Text = firstName + ", you owe the fraternity: " + amountMoneyOwed.ToString("C2");
+        }
+        else
+        {
+            lblAmountOwed.Text = firstName + ", you do not owe the fraternity anything! Great job!";
+        }
+
+        //if (Int32.TryParse(strAmountMoneyOwed, out amountMoneyOwed))
+        //{
+        //    if (amountMoneyOwed > 0)
+        //    {
+        //        lblAmountOwed.Text = firstName + ", you owe the fraternity: $" + amountMoneyOwed;
+        //    }
+        //    else
+        //    {
+        //        lblAmountOwed.Text = firstName + ", you do not owe the fraternity anything! Great job!"+strAmountMoneyOwed+":::"+amountMoneyOwed;
+        //    }
+        //}
+        //else
+        //{
+        //    lblAmountOwed.Text = strAmountMoneyOwed;
+        //}
+
+
+
 
 
 

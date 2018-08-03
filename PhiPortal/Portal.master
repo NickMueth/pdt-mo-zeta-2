@@ -61,6 +61,7 @@
                         </div>
                     </li>--%>
                 </ul>
+                <asp:Label ID="lblAuthType" runat="server" Text=""></asp:Label>
                 <ul class="navbar-nav ml-auto mr-5">
                     <li class="px-1">
                         <asp:HyperLink ID="hplManageAndWelcome" runat="server" CssClass="nav-link" NavigateUrl="/PhiPortal/Manage.aspx" Text="" Visible="true"></asp:HyperLink>

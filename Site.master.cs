@@ -15,7 +15,7 @@ public partial class Site : System.Web.UI.MasterPage
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDatabase"].ConnectionString);
         con.Open();
-        SqlCommand cmd = new SqlCommand("SELECT FirstName FROM PhiPortalUsers WHERE Username =@Username", con);
+        SqlCommand cmd = new SqlCommand("SELECT FirstName FROM UserInfo WHERE Username =@Username", con);
         SqlDataReader reader = null;
         cmd.Parameters.AddWithValue("@Username", Context.User.Identity.Name);
 

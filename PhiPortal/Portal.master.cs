@@ -16,7 +16,7 @@ public partial class PhiPortal_Portal : System.Web.UI.MasterPage
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDatabase"].ConnectionString);
         con.Open();
-        SqlCommand cmd = new SqlCommand("SELECT FirstName FROM PhiPortalUsers WHERE Username =@Username", con);
+        SqlCommand cmd = new SqlCommand("SELECT FirstName FROM UserInfo WHERE Username =@Username", con);
         SqlDataReader reader = null;
         cmd.Parameters.AddWithValue("@Username", Context.User.Identity.Name);
 
@@ -32,5 +32,7 @@ public partial class PhiPortal_Portal : System.Web.UI.MasterPage
             hplPortal_Logout.Visible = true;
             hplPortal_Login.Visible = false;
         }
+
+        if(HttpContext.Current.User.IsInRole)
     }
 }

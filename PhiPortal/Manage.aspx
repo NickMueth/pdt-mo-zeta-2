@@ -5,6 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1>MANAGE ACCOUNT PAGE</h1>
     <asp:HyperLink ID="btnChangePassword" runat="server" CssClass="btn btn-dark w-50" Text="Change password" NavigateUrl="#ContentPlaceHolder1_mdlChangePassword" data-toggle="modal"></asp:HyperLink>
+    
+    <asp:Label ID="lblSuccessOrError" runat="server" Visible="false" Text=""></asp:Label>
+
+
+    <!--CHANGE PASSWORD MODAL-->
     <asp:Panel runat="server" CssClass="modal fade" ID="mdlChangePassword">
             <asp:Panel runat="server" CssClass="modal-dialog" role="document">
                 <asp:Panel runat="server" CssClass="modal-content">
@@ -27,7 +32,7 @@
                         <asp:TextBox ID="txtBoxConfirmPassword" runat="server"></asp:TextBox>
                     </asp:Panel>
                     <asp:Panel runat="server" CssClass="modal-footer">
-                        <asp:Button ID="btnChange" runat="server" CssClass="btn btn-primary w-25" Text="Change" PostBackUrl="~/PhiPortal/Manage.aspx"/>
+                        <asp:Button ID="btnChange" runat="server" CssClass="btn btn-primary w-25" Text="Change" OnClick="btnChange_Click"/>
                         <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-secondary w-25" Text="Cancel" data-dismiss="modal"/>
                     </asp:Panel>
                 </asp:Panel>
