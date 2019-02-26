@@ -11,4 +11,9 @@ public partial class PhiPortal_Apparel : System.Web.UI.Page
     {
 
     }
+
+    protected void btnUploadApparel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/PhiPortal/UploadApparel/UploadApparel.aspx");
+    }
 }

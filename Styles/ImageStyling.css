@@ -1,0 +1,11 @@
+﻿body {
+}
+
+.clickable-image{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.clickable-image:hover{
+    opacity: 0.5;
+}
