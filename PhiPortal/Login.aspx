@@ -7,19 +7,26 @@
         <asp:Panel runat="server" CssClass="col-lg-3 d-none d-md-block">
         </asp:Panel>
         <asp:Panel runat="server" CssClass="col-lg-6">
-            <asp:Panel ID="pnlLoginContainer" runat="server" CssClass="container bg-light">
+            <asp:Panel ID="pnlLoginContainer" runat="server">
                 <asp:Panel ID="pnlLoginHeader" runat="server" CssClass="bg-info py-2">
                     <asp:Label ID="lblLoginHeader" Font-Bold="True" Font-Size="X-Large" runat="server" Text="Login"></asp:Label>
                 </asp:Panel>
-                <asp:Panel ID="pnlLoginUsername" runat="server" CssClass="row p-3">
-                    <asp:Label ID="lblUsername" CssClass="col-sm-4" runat="server" Text="Username:"></asp:Label>
-                    <asp:TextBox ID="txtbxUsername" CssClass="col-sm-8 rounded-top" placeholder="Username" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="reqFieldValUser" runat="server" ErrorMessage="Required Field" ControlToValidate="txtbxUsername" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
-                </asp:Panel>
-                <asp:Panel ID="pnlLoginPassword" runat="server" CssClass="row px-3">
-                    <asp:Label ID="lblPassword" CssClass="col-sm-4" runat="server" Text="Password:"></asp:Label>
-                    <asp:TextBox ID="txtbxPassword" CssClass="col-sm-8 rounded-bottom" placeholder="Password" TextMode="Password" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="reqFieldValPass" runat="server" ErrorMessage="Required Field" ControlToValidate="txtbxPassword" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:Panel runat="server" CssClass="row">
+                    <asp:Panel ID="pnlShield" runat="server" CssClass="col-sm-4">
+                        <asp:Image ID="imgShield" runat="server" ImageUrl="~/Images/Logos/shield4.jpg" style="width:200px;height:200px" />
+                    </asp:Panel>
+                    <asp:Panel ID="pnlLogin" runat="server" CssClass="col-sm-8">
+                        <asp:Panel ID="pnlLoginUsername" runat="server" CssClass="row p-3">
+                            <asp:Label ID="lblUsername" CssClass="col-sm-4" runat="server" Text="Username:"></asp:Label>
+                            <asp:TextBox ID="txtbxUsername" CssClass="col-sm-8 rounded-top" placeholder="Username" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="reqFieldValUser" runat="server" ErrorMessage="Required Field" ControlToValidate="txtbxUsername" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </asp:Panel>
+                        <asp:Panel ID="pnlLoginPassword" runat="server" CssClass="row px-3">
+                            <asp:Label ID="lblPassword" CssClass="col-sm-4" runat="server" Text="Password:"></asp:Label>
+                            <asp:TextBox ID="txtbxPassword" CssClass="col-sm-8 rounded-bottom" placeholder="Password" TextMode="Password" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="reqFieldValPass" runat="server" ErrorMessage="Required Field" ControlToValidate="txtbxPassword" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </asp:Panel>
+                    </asp:Panel>
                 </asp:Panel>
                 <asp:Panel ID="pnlLoginFooter" runat="server" CssClass="py-2" Style="text-align: center">
                     <asp:Label ID="lblLoginError" CssClass="alert alert-danger" runat="server" Visible="false" Font-Bold="true" ForeColor="Red" Text="Login Error: Username or Password invalid."></asp:Label>

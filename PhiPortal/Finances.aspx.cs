@@ -16,11 +16,11 @@ public partial class PhiPortal_Finances : System.Web.UI.Page
         string firstName = "fillerName", userID = "000" ;
         decimal amountMoneyOwed = 1;
         //Open Connection
-        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDatabase"].ConnectionString);
+        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDB"].ConnectionString);
         connection.Open();
         SqlDataReader dataReader = null;
 
-        SqlCommand getID = new SqlCommand("select Id, FirstName from UserInfo where Username =@Username", connection);
+        SqlCommand getID = new SqlCommand("select Id, FirstName from PhiPortalUsers where Username =@Username", connection);
         getID.Parameters.AddWithValue("@Username", Context.User.Identity.Name);
         dataReader = getID.ExecuteReader();
 

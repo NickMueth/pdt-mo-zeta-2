@@ -21,9 +21,9 @@ public partial class PhiPortal_Login : System.Web.UI.Page
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDatabase"].ConnectionString);
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDB"].ConnectionString);
         con.Open();
-        SqlCommand cmd = new SqlCommand("SELECT * FROM UserInfo WHERE Username =@Username AND Password =@Password", con);
+        SqlCommand cmd = new SqlCommand("SELECT * FROM PhiPortalUsers WHERE Username =@Username AND Password =@Password", con);
         cmd.Parameters.AddWithValue("@Username", txtbxUsername.Text);
         cmd.Parameters.AddWithValue("@Password", txtbxPassword.Text);
         SqlDataAdapter da = new SqlDataAdapter(cmd);

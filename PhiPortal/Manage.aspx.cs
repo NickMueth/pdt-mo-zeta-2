@@ -18,9 +18,9 @@ public partial class PhiPortal_Manage : System.Web.UI.Page
 
     protected void btnChange_Click(object sender, EventArgs e)
     {
-        SqlConnection passwordConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDatabase"].ConnectionString);
+        SqlConnection passwordConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDB"].ConnectionString);
         passwordConnection.Open();
-        SqlCommand getPassword = new SqlCommand("SELECT * FROM UserInfo WHERE Username =@Username AND Password =@Password", passwordConnection);
+        SqlCommand getPassword = new SqlCommand("SELECT * FROM PhiPortalUsers WHERE Username =@Username AND Password =@Password", passwordConnection);
         getPassword.Parameters.AddWithValue("@Username", Context.User.Identity.Name);
         getPassword.Parameters.AddWithValue("@Password", txtBoxOldPassword.Text);
         SqlDataAdapter da = new SqlDataAdapter(getPassword);
@@ -48,9 +48,9 @@ public partial class PhiPortal_Manage : System.Web.UI.Page
     {
         if(txtBoxConfirmPassword.Text == txtBoxNewPassword.Text)
         {
-            SqlConnection passwordChangeConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDatabase"].ConnectionString);
+            SqlConnection passwordChangeConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["PhiPortalUserDB"].ConnectionString);
             passwordChangeConnection.Open();
-            SqlCommand changePassword = new SqlCommand("UPDATE UserInfo SET Password = '" + txtBoxNewPassword.Text + "' WHERE Username =@Username AND Password =@Password", passwordChangeConnection);
+            SqlCommand changePassword = new SqlCommand("UPDATE PhiPortalUsers SET Password = '" + txtBoxNewPassword.Text + "' WHERE Username =@Username AND Password =@Password", passwordChangeConnection);
             changePassword.Parameters.AddWithValue("@Username", Context.User.Identity.Name);
             changePassword.Parameters.AddWithValue("@Password", txtBoxOldPassword.Text);
 
